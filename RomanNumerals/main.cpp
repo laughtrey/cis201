@@ -15,15 +15,15 @@ int main()
 	string numeral;
 	int input = 0;
 	int piece = 0;
-	
-	/*This asks for the initial input but does not proceed unless the integer is between 1 and 3999. 
+
+	/*This asks for the initial nput but does not proceed unless the integer is between 1 and 3999.
 	should I not lock them into something like this if they provide the wrong input?
 	*/
 	do
 	{
 		cout << "Please type an integer between 1 and 3999: " << endl;
 		cin >> input;
-	
+
 	}
 	while ( input >= 4000 || input < 0 ); //Runs the program if it is an acceptable input
 	/*
@@ -44,7 +44,7 @@ int main()
 	if ( input >= 1000 !=0 ) //Adds M to the string numerals if the input is divisible by 1000
 	{
 		piece = ( input / 1000);
-		for (int i = 0; i < piece; i++) 
+		for (int i = 0; i < piece; i++)
 		{
 			numeral += "M";
 		}
@@ -53,7 +53,7 @@ int main()
 	if ( input >= 100 !=0 )
 	{
 		piece = ( input / 100);
-		
+
 		if (piece == 9) //Adds CM to the string if the hundreds place is 9
 		{
 			numeral += "CM";
@@ -61,7 +61,7 @@ int main()
 		else if (piece >= 5) //Adds D to the string if the hundreds place is otherwise 5
 		{
 			numeral += "D";
-			
+
 			for (int i = 0; i < piece - 5;) //Adds C to the string for every integer below 4
 			{
 				numeral +="C";
@@ -79,19 +79,19 @@ int main()
 			}
 		}
 	input %= 100;  //Removes the hundreds
-	}	
+	}
 	if ( input >= 10 !=0 )
 	{
 		piece = (input / 10);
-		
+
 		if (piece == 9) //Adds 90 to the tens place if the tens are equal to 9
 		{
-			numeral +="XC"; 
+			numeral +="XC";
 		}
 		else if (piece >= 5) //Adds 50 to the tens place
 		{
 			numeral +="L";
-			
+
 			for (int i = 0; i < piece - 5; i++) //Adds X to the tens place for every integer below 4
 			{
 				numeral +="X";
@@ -113,7 +113,7 @@ int main()
 	if (input >= 1 !=0)
 	{
 		piece = input;
-		
+
 		if (piece == 9) //Adds 9 to the ones place
 		{
 			numeral +="IX";
@@ -121,7 +121,7 @@ int main()
 		else if (piece >= 5) //Adds 5 to the ones place
 		{
 			numeral +="V";
-			
+
 			for (int i = 0; i < piece - 5; i++) //Adds I to the ones place for every integer below 4
 			{
 				numeral +="I";
@@ -140,7 +140,6 @@ int main()
 		}
 	}
 	cout << "Your number in Roman Numerals is: " << numeral << endl;
-	
-	system("PAUSE");
+
 	return 0;
 }
