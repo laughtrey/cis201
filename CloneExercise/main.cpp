@@ -12,6 +12,6 @@ int main()
 {
     int answer = 84 / 2; // Calculate the answer
     cout << "Hello World" << endl;
-    cout << "The answer to life, the universe, and everything is: " << answer<< endl;
+    cout << "The answer to life, the universe, and everything is: " << answer << endl;
     return 0;
 }
