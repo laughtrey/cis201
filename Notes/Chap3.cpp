@@ -1,11 +1,9 @@
 //Chapter 3 notes Big C++
-
 #include <iostream>
 #include <string>		//String
 #include <ctime>		//Time
 #include <cstdlib>	//Random
 using namespace std;
-
 int main()
 {
 

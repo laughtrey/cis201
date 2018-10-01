@@ -1,9 +1,7 @@
 //Chapter 2 notes Big C++
-
 #include <iostream>
 using namespace std;
 int main()
-
 {
   cout << "you can increment a variable such as month = month + 1 and the variable will now be increased by one" << endl;
   cout << "or you can simply type 'variable++' and it will add one to the variable" << endl;
