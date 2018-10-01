@@ -16,14 +16,14 @@ int main()
 	int input = 0;
 	int piece = 0;
 
-	/*This asks for the initial nput but does not proceed unless the integer is between 1 and 3999.
+	/*
+	This asks for the initial input but does not proceed unless the integer is between 1 and 3999.
 	should I not lock them into something like this if they provide the wrong input?
 	*/
 	do
 	{
 		cout << "Please type an integer between 1 and 3999: " << endl;
 		cin >> input;
-
 	}
 	while ( input >= 4000 || input < 0 ); //Runs the program if it is an acceptable input
 	/*
