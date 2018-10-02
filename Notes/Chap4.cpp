@@ -12,7 +12,7 @@ int main()
    double rate;
    //Functions compute  an output using some method (we trust) will yield the correct result
    //The value is then transfered back, and main is resumed
-   cout << "pleas enter the interest rate in percent: ";
+   cout << "please enter the interest rate in percent: ";
    cin >> rate;
    double b = future_value(1000, rate, 10);
    cout << "After 10 years, the balance is: " << b << "\n";
@@ -23,6 +23,7 @@ int main()
    //you use the return statement to specify the result of a function
    //when return statement is processed, the function exits immediately.
    //if (n < 0) return 0; if n is negative the function terminates and the rest is not executed.
+   //a variable in a function is called a parameter variable or formal parameter
 
    return 0;
 }
