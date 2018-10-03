@@ -20,11 +20,6 @@ int main()
   cout << "once you have a string you can extract substrings with s.substr(start, length)" << endl;
   //string greeting = "Hello, World!\n";
   //string sub = greeting.substr(0, 4); //sub is Hell
-  cout << "" << endl;
-  cout << "" << endl;
-  cout << "" << endl;
-  cout << "" << endl;
-  cout << "" << endl;
-  cout << "" << endl;
+
   return 0;
 }
