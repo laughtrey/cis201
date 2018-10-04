@@ -26,6 +26,9 @@ int main()
    //when return statement is processed, the function exits immediately.
    //if (n < 0) return 0; if n is negative the function terminates and the rest is not executed.
    //a variable in a function is called a parameter variable or formal parameter
-
+   //parameter values are constants in this book, but they can be changed.
+   //decleration follows with a semicolon, defitions are followed by block delimiters.
+   //functions can call functions
+   //the assert macros ensures nothing is performed inappropriately (sqrt of a negative number)
    return 0;
 }
