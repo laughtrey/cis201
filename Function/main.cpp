@@ -1,11 +1,11 @@
 /*
 File: main.cpp
-Description: This is the function project.
+Description: This program will ask the user for a radius and height then
+output various surface areas and volumes.
 Author: Raymond Laughrey
 Email: raymonl4963@student.vvc.edu
 Date of Creation: 9/27/2018, 4:48:58 PM
 */
-//combine exercises 4.8 and 4.7
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -22,18 +22,28 @@ double cone_surface(double radius, double height);
 
 int main()
 {
-   double radius = get_radius("Please enter a radius for a sphere and cylinder: ");
-   double height = get_height("Please enter the height of your cylinder and cone: ");
-   cout << "The surface area of your sphere is: " << sphere_surface(radius) << endl;
-   cout << "The volume of a sphere with your radius is: " << sphere_volume(radius) << endl;
-   cout << "The volume of a cylinder with your radius and height is: " << cylinder_volume(radius,height) << endl;
-   cout << "The surface area of a cylinder with your radius and height is: " << cylinder_surface(radius,height) << endl;
-   cout << "The volume of a cone with your radius and height is: " << cone_volume(radius,height) << endl;
-   cout << "The surface area of a cone with your radius and height is: " << cone_surface(radius,height) << endl;
+   double sradius = get_radius("Please enter a radius for your sphere: ");
+   cout << "The surface area of your sphere is: " << sphere_surface(sradius) << endl;
+   cout << "The volume of a sphere with your radius is: " << sphere_volume(sradius) << endl;
+   double cyradius = get_radius("Please enter a radius for your cylinder: ");
+   double cyheight = get_height("Please enter the height of your cylinder: ");
+   cout << "The volume of a cylinder with your radius and height is: " << cylinder_volume(cyradius,cyheight) << endl;
+   cout << "The surface area of a cylinder with your radius and height is: " << cylinder_surface(cyradius,cyheight) << endl;
+   double coradius = get_radius("Please enter a radius for your cone: ");
+   double coheight = get_height("Please enter the height of your cone: ");
+   cout << "The volume of a cone with your radius and height is: " << cone_volume(coradius,coheight) << endl;
+   cout << "The surface area of a cone with your radius and height is: " << cone_surface(coradius,coheight) << endl;
 
   return 0;
 }
 
+/**
+This requests the radius with the string prompt
+@param radius placeholder float
+@param output prompts user for the radius
+@param inputs the radius into the float
+@return returns the radius
+*/
 double get_radius(string prompt)
 {
    double radius=1.0;
@@ -42,6 +52,13 @@ double get_radius(string prompt)
    return radius;
 }
 
+/**
+This requests the height with the string prompt
+@param height placeholder float
+@param output prompts user for the height
+@param inputs the height into the float
+@return returns the height
+*/
 double get_height(string prompt)
 {
    double height=1.0;
@@ -51,10 +68,10 @@ double get_height(string prompt)
 }
 
 /**
-Gives the surface area of a sphere with the entered Radius
+This calculates surface area of a sphere with the entered radius
 @param surface equation
-@param r the radius entered by the user
-@return the surface of the sphere
+@param radius the radius entered by the user
+@return returns the surface of the sphere
 */
 double sphere_surface(double radius)
 {
@@ -62,6 +79,10 @@ double sphere_surface(double radius)
 }
 
 /**
+This calculates the volume of a sphere with the entered radius
+@param volume equation
+@param radius the radius entered by the user
+@return returns the calculated sphere volume
 */
 double sphere_volume(double radius)
 {
@@ -69,6 +90,11 @@ double sphere_volume(double radius)
 }
 
 /**
+This calculates the volume of a cylinder with the entered radius and get_height
+@param volume equation
+@param height entered height
+@param radius entered radius
+@return returns the calculated cylinder volume
 */
 double cylinder_volume(double radius, double height)
 {
@@ -76,6 +102,11 @@ double cylinder_volume(double radius, double height)
 }
 
 /**
+This calculates the surface area of the cylinder with the entered radius and height
+@param cylinder surface equation
+@param radius entered radius
+@param height entered height
+@return returns the calculated cylinder surface
 */
 double cylinder_surface(double radius, double height)
 {
@@ -83,12 +114,22 @@ double cylinder_surface(double radius, double height)
 }
 
 /**
+This calculates the volume of a cone with the entered radius and height
+@param cone volume equation
+@param radius entered radius
+@param height entered height
+@return returns the calculated cone volume
 */
 double cone_volume(double radius, double height)
 {
    return (1.0 / 3.0) * M_PI * height * pow(radius,2);
 }
 /**
+This calculates the surface area of a cone with the entered radius and height
+@param cone surface equation
+@param radius entered radius
+@param height entered height
+@return returns the calculated cone surface volume
 */
 double cone_surface(double radius, double height)
 {
