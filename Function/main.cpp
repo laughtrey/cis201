@@ -90,7 +90,7 @@ double sphere_volume(double radius)
 }
 
 /**
-This calculates the volume of a cylinder with the entered radius and get_height
+This calculates the volume of a cylinder with the entered radius and height
 @param volume equation
 @param height entered height
 @param radius entered radius
