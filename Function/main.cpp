@@ -40,8 +40,7 @@ int main()
 /**
 This requests the radius with the string prompt
 @param radius placeholder float
-@param output prompts user for the radius
-@param inputs the radius into the float
+@param prompt the prompt for requesting radius
 @return returns the radius
 */
 double get_radius(string prompt)
@@ -55,8 +54,7 @@ double get_radius(string prompt)
 /**
 This requests the height with the string prompt
 @param height placeholder float
-@param output prompts user for the height
-@param inputs the height into the float
+@param prompt the prompt for requesting height height
 @return returns the height
 */
 double get_height(string prompt)
@@ -69,7 +67,6 @@ double get_height(string prompt)
 
 /**
 This calculates surface area of a sphere with the entered radius
-@param surface equation
 @param radius the radius entered by the user
 @return returns the surface of the sphere
 */
@@ -80,7 +77,6 @@ double sphere_surface(double radius)
 
 /**
 This calculates the volume of a sphere with the entered radius
-@param volume equation
 @param radius the radius entered by the user
 @return returns the calculated sphere volume
 */
@@ -91,7 +87,6 @@ double sphere_volume(double radius)
 
 /**
 This calculates the volume of a cylinder with the entered radius and height
-@param volume equation
 @param height entered height
 @param radius entered radius
 @return returns the calculated cylinder volume
@@ -103,7 +98,6 @@ double cylinder_volume(double radius, double height)
 
 /**
 This calculates the surface area of the cylinder with the entered radius and height
-@param cylinder surface equation
 @param radius entered radius
 @param height entered height
 @return returns the calculated cylinder surface
@@ -115,7 +109,6 @@ double cylinder_surface(double radius, double height)
 
 /**
 This calculates the volume of a cone with the entered radius and height
-@param cone volume equation
 @param radius entered radius
 @param height entered height
 @return returns the calculated cone volume
@@ -126,7 +119,6 @@ double cone_volume(double radius, double height)
 }
 /**
 This calculates the surface area of a cone with the entered radius and height
-@param cone surface equation
 @param radius entered radius
 @param height entered height
 @return returns the calculated cone surface volume
