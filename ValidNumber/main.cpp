@@ -14,6 +14,9 @@ int to_int(char c)
    return c - '0';
 }
 bool is_valid_number(string s)
+{
+
+}
 int main()
 {
    string s = "30349875340958034985039485093485024a958";
