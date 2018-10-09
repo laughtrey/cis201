@@ -1,16 +1,6 @@
 #include<iostream>
 #include<string>
 using namespace std;
-class is_valid_number
-{
-private:
-   string s;
-   char c;
-
-public:
-   is_valid_number ();
-};
-
 bool is_printable(char c)
 {
    return ( c >= ' ' && c <= '~');
