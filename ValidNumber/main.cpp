@@ -29,6 +29,9 @@ int main()
    if(is_valid_number(s))
    {
       cout << "yes it is valid";
+      //cout << s.at(0) << endl;
+      //cout << s.at(1) << endl;
+      //cout << s.at(2) << endl;
    }
    else
    {
