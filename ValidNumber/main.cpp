@@ -1,3 +1,10 @@
+/**
+File: main.cpp
+Description: String Valid Number function project
+Author: Raymond Laughrey
+Email: raymonl4963@student.vvc.edu
+Date of creation: 10/7/2018, 3:47:39 AM
+*/
 #include<iostream>
 #include<string>
 using namespace std;
@@ -15,7 +22,6 @@ int to_int(char c)
 }
 bool is_valid_number(string s)
 {
-
 }
 int main()
 {

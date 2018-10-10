@@ -39,21 +39,29 @@ int main()
 
 /**
 This requests the radius with the string prompt
-@param radius placeholder float
+@param radius placeholder double
 @param prompt the prompt for requesting radius
 @return returns the radius
 */
 double get_radius(string prompt)
 {
-   double radius=1.0;
+   double radius;
    cout << prompt;
    cin >> radius;
+   if (cin.fail())
+   {
+      cin.clear();
+      cin.ignore(999999, '\n');
+      cout << "Please enter a valid radius next time." << endl;
+      exit (1);//I would really like this to loop back into requesting an input instead of exiting.
+   }
+   else
    return radius;
 }
 
 /**
 This requests the height with the string prompt
-@param height placeholder float
+@param height placeholder double
 @param prompt the prompt for requesting height height
 @return returns the height
 */
@@ -62,6 +70,14 @@ double get_height(string prompt)
    double height=1.0;
    cout << prompt;
    cin >> height;
+   if (cin.fail())
+   {
+      cin.clear();
+      cin.ignore(999999, '\n');
+      cout << "Please enter a valid height next time." << endl;
+      exit (1);
+   }
+   else
    return height;
 }
 
