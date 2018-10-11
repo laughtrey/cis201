@@ -30,5 +30,7 @@ int main()
    //decleration follows with a semicolon, defitions are followed by block delimiters.
    //functions can call functions
    //the assert macros ensures nothing is performed inappropriately (sqrt of a negative number)
+   // g++ -o -g -Wall main.cpp && make debug
+   //(gdb) break 11
    return 0;
 }
