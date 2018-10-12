@@ -1,10 +1,3 @@
-/**
-File: main.cpp
-Description: String Valid Number function project
-Author: Raymond Laughrey
-Email: raymonl4963@student.vvc.edu
-Date of creation: 10/7/2018, 3:47:39 AM
-*/
 #include<iostream>
 #include<string>
 using namespace std;
@@ -22,23 +15,25 @@ int to_int(char c)
 }
 bool is_valid_number(string s)
 {
-  for(double i = (is_digit(s.at(0)) ); 0 < (is_digit(s.at(9999)) ); i++)
+   int length = s.length();
+   for (int i = 0; i < length; i++)
+   {
+      if (!isdigit(s.at(i)))
+      return false;
+   }
+   return true;
 
-  return true;
 }
 int main()
 {
    string s = "30349875340958034985039485093485024a958";
    if(is_valid_number(s))
    {
-      cout << "yes it is valid\n";
-      //cout << s.at(0) << endl;
-      //cout << s.at(1) << endl;
-      //cout << s.at(2) << endl;
+      cout << "yes it is valid";
    }
    else
    {
-      cout << "no it is not valid\n";
+      cout << "no it is not valid";
    }
    return 0;
 }
