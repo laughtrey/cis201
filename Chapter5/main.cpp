@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+#include "box.h"
 using namespace std;
 
 class box
