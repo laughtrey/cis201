@@ -21,7 +21,7 @@ private:
    string name;
 public:
    Country(); // Constructor
-   Country(double area, double population); // Constructor with parameters
+   Country(int area, int population); // Constructor with parameters
    void read(); // Mutator
    bool is_larger(Country b); // Compares the two countries and finds the larger area
    bool is_more_populated(Country b); // Compares the two countries and finds the more popuated
@@ -33,7 +33,7 @@ public:
    */
 };
 // Constructor
-Country::Country(double area, double population)
+Country::Country(int area, int population)
 {
    area = 1;
    population = 0;
@@ -46,7 +46,7 @@ void Country::read()
    getline(cin, name);
    cout << "Please enter the population: ";
    cin >> population;
-   cout << "Please enter the area in miles squared: ";
+   cout << "Please enter the area in kilometers squared: ";
    cin >> area;
 }
 bool Country::is_larger(Country b)
