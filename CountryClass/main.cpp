@@ -24,19 +24,16 @@ public:
    //Country(int area, int population); // Constructor with parameters
    void read(); // Mutator
    bool is_larger_than(Country b) const; // Compares the two countries and finds the larger area
-   bool is_more_populated_than(Country b) const; // Compares the two countries and finds the more popuated
-   bool is_denser_than(Country b) const; // Compares the two countries and finds the denser populated
+   bool is_more_populated_than(Country next) const; // Compares the two countries and finds the more popuated
+   bool is_denser_than(Country next) const; // Compares the two countries and finds the denser populated
    void print() const; // Prints the results
-   /*
-   void set_population(double population); // Mutator
-   void set_area(double area); // Mutator
-   */
 };
 // Constructor
 Country::Country()
 {
    area = 1;
    population = 0;
+   density = 0;
 }
 // ---Functions---
 // Mutator or setter functions
@@ -48,31 +45,38 @@ void Country::read()
    cin >> population;
    cout << "Please enter the area in kilometers squared: ";
    cin >> area;
+   density = (population / area);
+   string remainder;
+   getline(cin, remainder);
 }
-bool Country::is_larger_than(Country largest) const
+bool Country::is_larger_than(Country b) const
 {
    if (area == 0) return true;
-   if (largest.area == 0) return false;
-   return area > largest.area;
+   if (b.area == 0) return false;
+   return area > b.area;
 }
-bool Country::is_more_populated_than(Country populous) const
+
+bool Country::is_more_populated_than(Country b) const
 {
    if (population == 0) return true;
-   if (populous.population == 0) return false;
-   return population > populous.population;
+   if (b.population == 0) return false;
+   return population > b.population;
+
 }
-bool Country::is_denser_than(Country densest) const
+bool Country::is_denser_than(Country b) const
 {
    if (density == 0) return true;
-   if (densest.density == 0) return false;
-   return density > densest.density;
+   if (b.density == 0) return false;
+   return density > b.density;
+
 }
-void Country::print() const
+
+void Country::print() const // split this into 3 for each type and call printlargest etc
 {
-   cout << name
-      << "Population: " << population
-      << "Area: "       << area
-      << "Density: "    << density;
+   cout << name << endl;
+   cout << "Population: " << population << endl;
+   cout << "Area:" << area << endl;
+   cout << "Density: " << density << endl;
 }
 int main()
 {
@@ -81,25 +85,26 @@ int main()
    Country densest;
 
    bool more = true;
-   while(more)
+   while (more)
    {
       Country next;
       next.read();
       if (next.is_larger_than(largest))
-      largest = next;
+      largest = next; //this is erasing next. I need it to be able to keep checking the entered country.
       if (next.is_more_populated_than(populous))
       populous = next;
       if (next.is_denser_than(densest))
       densest = next;
 
-      cout << "Enter another country? (y/n) ";
+      cout << "More data? (y/n) ";
       string answer;
       getline(cin, answer);
-      if (answer !="y")
-      more = false;
+      if (answer != "y")
+         more = false;
    }
-   cout << "The largest country has a population of: ";
-   largest.print();
+   cout << "The largest country by area is: "; largest.print();
+   cout << "The most populated country is: "; populous.print();
+   cout << "The most densely populated country is: "; densest.print();
 
    return 0;
 }
