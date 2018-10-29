@@ -28,11 +28,7 @@ Message::Message(string r, string s, string b)
    recipient = r;
    sender = s;
    body = b;
-   time(&timest);
-   From = "From: ";
-   To = "To: ";
-   Message_body = "Message: ";
-   email = " ";
+   timest = 0;
 
 }
 void Message::append()
@@ -45,24 +41,24 @@ void Message::append()
    getline(cin, body);
    time(&timest);
 }
-void Message::to_string()
+void Message::to_string() // Cocatinate the entire thing to one string email
 {
    From = sender;
    To = recipient;
    Message_body = body;
    email = From + To + Message_body;
 }
-void Message::print()
+void Message::print() // just print email.
 {
    cout << email;
 }
 int main()
 {
    Message mail;
-   time_t timest;
+   //time_t timest;
    mail.append();
-   mail.print();
-   time(&timest);
-   cout << ctime(&timest);
+   cout << "Your message is: "; mail.print();
+   //time(&timest);
+   //cout << ctime(&timest);
    return 0;
 }
