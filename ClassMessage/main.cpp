@@ -23,7 +23,7 @@ Message::Message()
 {
 
 }
-Message::Message(string r, string s, string b)
+Message::Message(string r, string s, timest)
 {
    recipient = r;
    sender = s;
@@ -31,15 +31,18 @@ Message::Message(string r, string s, string b)
    timest = 0;
 
 }
-void Message::append()
+void Message::append(string m)
 {
-   cout << "Please enter your recipient: ";
+  m_message += '\n' + m;
+  // concatenate the constructed recipient/sender with a message body string b
+   /*cout << "Please enter your recipient: ";
    getline(cin, recipient);
    cout << "Please enter your name as sender: ";
    getline(cin, sender);
    cout << "Please enter your message: ";
    getline(cin, body);
    time(&timest);
+   */
 }
 Message::to_string() // Cocatinate the entire thing to one string email
 {
