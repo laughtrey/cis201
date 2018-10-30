@@ -1,9 +1,5 @@
 # CIS 201
 
-```Block1
-This is a short description and info about everything I've done
-so far. Grouping things by type more than time.
-```
 ## Projects
 
 ### Sum Product and Average
