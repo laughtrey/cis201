@@ -5,3 +5,9 @@ This is all of the projects and work I'm doing for my very first programming cla
 I'll be updating all my code here as a timeline of my progress. Since files are updated weirdly and out of order,
 I may go back and manually date each assignment, hopefully before I forget when I did each one!
 ```
+## Projects
+
+**WOW**
+>I just had the great idea to list and describe every project
+
+_github is great_
