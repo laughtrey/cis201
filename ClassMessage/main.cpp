@@ -16,7 +16,7 @@ public:
    Message();
    Message(string r, string s, string b); // Constructor that takes the sender and recipient and sets the time stamp to current time
    void append(); // Appends a line of text to the message body
-   void to_string(); // makes the message into one long string
+   to_string(); // makes the message into one long string
    void print(); // prints the message text
 };
 Message::Message()
@@ -41,24 +41,21 @@ void Message::append()
    getline(cin, body);
    time(&timest);
 }
-void Message::to_string() // Cocatinate the entire thing to one string email
+Message::to_string() // Cocatinate the entire thing to one string email
 {
-   From = sender;
-   To = recipient;
-   Message_body = body;
-   email = From + To + Message_body;
+   email = "From: " + sender + '\n' + "To: " + recipient + '\n' + "Sent at: " + ctime(&timest) + "Message: " + body;
+
 }
-void Message::print() // just print email.
+void Message::print() // just prints email.
 {
    cout << email;
 }
 int main()
 {
    Message mail;
-   //time_t timest;
-   mail.append();
-   cout << "Your message is: "; mail.print();
-   //time(&timest);
-   //cout << ctime(&timest);
+   mail.append(); // Maybe this should be the constructor, the assignment was unclear.
+   mail.to_string();
+   cout << "Your message is: "<< endl;
+   mail.print();
    return 0;
 }
