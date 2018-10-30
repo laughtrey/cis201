@@ -55,8 +55,8 @@ void Message::print() // just prints email.
 }
 int main()
 {
-   Message mail;
-   mail.append(); // Maybe this should be the constructor, the assignment was unclear.
+   Message mail("r","s", &timest);
+   mail.append("Appending message"); // Maybe this should be the constructor, the assignment was unclear.
    mail.to_string();
    cout << "Your message is: "<< endl;
    mail.print();
