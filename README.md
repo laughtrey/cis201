@@ -6,6 +6,7 @@ This is a short description and info about everything I've done
 so far. Grouping things by type more than time.
 ```
 ## Projects
+```waitcanidothis
 ### Sum Product and Average
 >Aug-27 This was the first project, just simply doing some math and getting used
 >to making main files.
@@ -25,6 +26,7 @@ so far. Grouping things by type more than time.
 >Oct-22 Classes messed me up good. They just keep stacking stuff on top of each other.
 >Classes and objects took me a bit to wrap my head around, but now I see how practical
 >C++ is.
+```
 **WOW**
 >hopefully I keep listing and updating every project
 
