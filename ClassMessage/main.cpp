@@ -28,7 +28,6 @@ Message::Message(std::string r, std::string s)
    m_sender = s;
    m_body = " ";
    time(&timestamp);
-
 }
 void Message::append(std::string m)
 {
@@ -41,7 +40,7 @@ void Message::to_string() // Cocatinate the entire thing to one string email
 }
 void Message::print() // just prints email.
 {
-   std::cout << m_email;
+   std::cout << m_email << std::endl;
 }
 int main()
 {
