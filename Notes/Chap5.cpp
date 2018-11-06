@@ -3,7 +3,7 @@
 #include<string>
 using namespace std;
 int main()
-//ftp-remote
+
 {
 string remainder; //Read remainder of line
 getline(cin, remainder);
