@@ -29,20 +29,80 @@ Date of Creation:
 #include<string>
 #include<vector>
 
-class Transaction {
+class Transaction
+{
 private:
    int day;
    double amount;
-   string description;
+   std::string description;
 
 public:
-   Transaction (arguments);
+   Transaction();
+   Transaction(int day, double amount, std::string description);
+   void read();
+   void get_day();
+   void get_amount();
+   void interest();
+   void print();
+   void print_transactions(std::vector<Transaction>& v);
 };
+Transaction::Transaction(int day, double amount, std::string description)
+{
+   day = 0;
+   amount = 0;
+   description = "Initial balance";
+}
+void Transaction::read()
+{
+    std::cout << "Day: " << std::endl;
+    std::cin >> day;
+    std::cout << "Amount: " << std::endl;
+    std::cin >> amount;
+    std::cin.ignore();
+    std::cout << "Description of transaction: " << std::endl;
+    std::getline(std::cin,description);
+}
+void Transaction::get_day()
+{
 
+}
+void Transaction::get_amount()
+{
+
+}
+void Transaction::interest()
+{
+
+}
+void Transaction::print()
+{
+   std::cout << "Day: " << day << std::endl;
+   std::cout << "Balance: " << amount << std::endl;
+   std::cout << "Description: " << description << std::endl;
+}
+void print_transactions(std::vector<Transaction>& v)
+{
+   for (int i = 0; i < v.size(); i++) {
+      v[i].print();
+   }
+
+}
 
 int main()
 {
-  std::vector<TYPE> VECTORNAME(optional amount);
-  std::vector<CLASSNAME> VECTORNAME;
+  //std::vector<TYPE> VECTORNAME(optional amount);
+  //std::vector<CLASSNAME> VECTORNAME;
+  std::vector<Transaction> day; //Trying to initialize a vector of all the days
+  bool more = true;
+      while (more)
+        {
+          Transaction BobBarker(1,1143.24,"Initial balance"); //should be the initial balance, first day, vector 0
+          std::cout << "More data? (y/n) ";
+          std::string answer;
+          getline(std::cin, answer);
+          if (answer != "y")
+                   more = false;
+        }
+       
    return 0;
 }
