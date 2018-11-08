@@ -32,9 +32,9 @@ Date of Creation:
 class Transaction
 {
 private:
-   int day;
-   double amount;
-   std::string description;
+   int m_day;
+   double m_amount;
+   std::string m_description;
 
 public:
    Transaction();
@@ -48,9 +48,7 @@ public:
 };
 Transaction::Transaction()
 {
-   m_day = 0;
-   m_amount = 0;
-   m_description = " ";
+
 }
 Transaction::Transaction(int day, double amount, std::string description)
 {
@@ -61,12 +59,12 @@ Transaction::Transaction(int day, double amount, std::string description)
 void Transaction::read()
 {
     std::cout << "Day: " << std::endl;
-    std::cin >> day;
+    std::cin >> m_day;
     std::cout << "Amount: " << std::endl;
-    std::cin >> amount;
+    std::cin >> m_amount;
     std::cin.ignore();
     std::cout << "Description of transaction: " << std::endl;
-    std::getline(std::cin,description);
+    std::getline(std::cin,m_description);
 }
 void Transaction::get_day()
 {
@@ -82,9 +80,9 @@ void Transaction::interest()
 }
 void Transaction::print()
 {
-   std::cout << "Day: " << day << std::endl;
-   std::cout << "Balance: " << amount << std::endl;
-   std::cout << "Description: " << description << std::endl;
+   std::cout << "Day: " << m_day << std::endl;
+   std::cout << "Balance: " << m_amount << std::endl;
+   std::cout << "Description: " << m_description << std::endl;
 }
 void print_transactions(std::vector<Transaction>& v)
 {
