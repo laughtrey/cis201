@@ -26,6 +26,19 @@ Email: raymonl4963@student.vvc.edu
 Date of Creation:
 */
 #include<iostream>
+#include<string>
+#include<vector>
+
+class Transaction {
+private:
+   int day;
+   double amount;
+   string description;
+
+public:
+   Transaction (arguments);
+};
+
 
 int main()
 {
