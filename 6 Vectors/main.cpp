@@ -88,7 +88,8 @@ void Transaction::print()
 }
 void print_transactions(std::vector<Transaction>& v)
 {
-   for (int i = 0; i < v.size(); i++) {
+   for (int i = 0; i < v.size(); i++)
+   {
       v[i].print();
    }
 
@@ -98,11 +99,12 @@ int main()
 {
   //std::vector<TYPE> VECTORNAME(optional amount);
   //std::vector<CLASSNAME> VECTORNAME;
+  std::vector<Transaction> day; //should be the initial balance, first day, vector 0
   bool more = true;
       while (more)
         {
-          std::vector<Transaction> Transactions; //should be the initial balance, first day, vector 0
-          Transactions.push_back(1,1143.24,"Initial balance") // How do I start the 0th vector with this info?
+          Transaction initial(1,1143.24,"Initial balance");
+          day.push_back(initial); // How do I start the 0th vector with this info?
           std::cout << "More data? (y/n) ";
           std::string answer;
           getline(std::cin, answer);
