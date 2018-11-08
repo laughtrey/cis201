@@ -27,7 +27,5 @@
 >Classes and objects took me a bit to wrap my head around, but now I see how practical
 >C++ is.
 
-**WOW**
->hopefully I keep listing and updating every project
-
-_github is great_
+### Vectors
+>Nov-4 Vectors just seem like lists to me. I'm working on making a vector of objects in chapter 6.
