@@ -46,6 +46,12 @@ public:
    void print();
    void print_transactions(std::vector<Transaction>& v);
 };
+Transaction::Transaction()
+{
+   day = 0;
+   amount = 0;
+   description = "Initial balance: ";
+}
 Transaction::Transaction(int day, double amount, std::string description)
 {
    day = 0;
@@ -92,17 +98,17 @@ int main()
 {
   //std::vector<TYPE> VECTORNAME(optional amount);
   //std::vector<CLASSNAME> VECTORNAME;
-  std::vector<Transaction> day; //Trying to initialize a vector of all the days
   bool more = true;
       while (more)
         {
-          Transaction BobBarker(1,1143.24,"Initial balance"); //should be the initial balance, first day, vector 0
+          std::vector<Transaction> Transactions; //should be the initial balance, first day, vector 0
+          Transactions.push_back(1,1143.24,"Initial balance") // How do I start the 0th vector with this info?
           std::cout << "More data? (y/n) ";
           std::string answer;
           getline(std::cin, answer);
           if (answer != "y")
                    more = false;
         }
-       
+
    return 0;
 }
