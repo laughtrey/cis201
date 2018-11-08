@@ -25,7 +25,7 @@
 ### Classes
 >Oct-22 Classes messed me up good. They just keep stacking stuff on top of each other.
 >Classes and objects took me a bit to wrap my head around, but now I see how practical
->C++ is.
+>C++ is. 5.4 is a group project too!
 
 ### Vectors
 >Nov-4 Vectors just seem like lists to me. I'm working on making a vector of objects in chapter 6.
