@@ -48,15 +48,15 @@ public:
 };
 Transaction::Transaction()
 {
-   day = 0;
-   amount = 0;
-   description = "Initial balance: ";
+   m_day = 0;
+   m_amount = 0;
+   m_description = " ";
 }
 Transaction::Transaction(int day, double amount, std::string description)
 {
-   day = 0;
-   amount = 0;
-   description = "Initial balance";
+   m_day = day;
+   m_amount = amount;
+   m_description = " ";
 }
 void Transaction::read()
 {
@@ -99,18 +99,22 @@ int main()
 {
   //std::vector<TYPE> VECTORNAME(optional amount);
   //std::vector<CLASSNAME> VECTORNAME;
-  std::vector<Transaction> day; //should be the initial balance, first day, vector 0
+
+  std::vector<Transaction> day;
+  Transaction initial(1,1143.24,"Initial balance"); //should be the initial balance, first day, vector 0
+  day.push_back(initial); // How do I start the 0th vector with this info?
   bool more = true;
       while (more)
         {
-          Transaction initial(1,1143.24,"Initial balance");
-          day.push_back(initial); // How do I start the 0th vector with this info?
+          Transaction t;
+          t.read();
+          day.push_back(t);
           std::cout << "More data? (y/n) ";
           std::string answer;
           getline(std::cin, answer);
           if (answer != "y")
                    more = false;
         }
-
+    print_transactions(day);
    return 0;
 }
