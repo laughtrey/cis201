@@ -23,7 +23,7 @@ File: main.cpp
 Description:
 Author: Raymond Laughrey
 Email: raymonl4963@student.vvc.edu
-Date of Creation:
+Date of Creation: 11/10/2018, 3:31:50 PM
 */
 #include<iostream>
 #include<string>
@@ -33,7 +33,7 @@ class Transaction
 {
 private:
    int m_day;
-   double m_amount;
+   double m_amount, m_balance;
    std::string m_description;
 
 public:
@@ -43,6 +43,7 @@ public:
    void get_day();
    void get_amount();
    void interest();
+   double Balance(const std::vector<double> &v);
    void print();
    void print_transactions(std::vector<Transaction>& v);
 };
@@ -78,10 +79,17 @@ void Transaction::interest()
 {
 
 }
+double Transaction::Balance(const std::vector<double> &v)
+{
+   int total = 0;
+   for(int i=0;i<v.size();i++)
+      total += v[i];
+   return total;
+}
 void Transaction::print()
 {
    std::cout << "Day: " << m_day << std::endl;
-   std::cout << "Balance: " << m_amount << std::endl;
+   std::cout << "Transaction: " << m_amount << std::endl;
    std::cout << "Description: " << m_description << std::endl;
 }
 void print_transactions(std::vector<Transaction>& v)
@@ -95,13 +103,10 @@ void print_transactions(std::vector<Transaction>& v)
 
 int main()
 {
-  //std::vector<TYPE> VECTORNAME(optional amount);
-  //std::vector<CLASSNAME> VECTORNAME;
-
-  std::vector<Transaction> day;
-  Transaction initial(1,1143.24,"Initial balance"); //should be the initial balance, first day, vector 0
-  day.push_back(initial); // How do I start the 0th vector with this info?
-  bool more = true;
+   std::vector<Transaction> day;
+   Transaction initial(1,1143.24,"Initial balance"); // Initial Balance
+   day.push_back(initial); //push_back initial balance (object) onto day (vector of objects)
+   bool more = true;
       while (more)
         {
           Transaction t;
@@ -114,5 +119,6 @@ int main()
                    more = false;
         }
     print_transactions(day);
+    std::cout << "Your total balance is: " << Balance(day); //Not declared in this scope?
    return 0;
 }
