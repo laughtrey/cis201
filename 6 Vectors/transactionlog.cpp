@@ -7,6 +7,7 @@
 
 class Transactionlog
 {
+private:
 std::vector<Transaction> m_transactions;
 double m_balance;
 double m_min_balance;
