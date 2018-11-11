@@ -93,7 +93,7 @@ int main()
         Transaction initial(1,1143.24,"Initial balance"); // Initial Balance
         transaction_log.push_back(initial); //push_back initial balance (object) onto day (vector of objects)
         print_transactions(transaction_log); //Prints Day 1
-        std::cout << "Total: " << total(transaction_log) << std::endl;
+        std::cout << "Total: " << total(transaction_log) << std::endl; // Prints the total
         bool more = true;
         while(more) // This loop takes in input for the rest of the month.
         {
@@ -107,6 +107,6 @@ int main()
                         more = false;
         }
         print_transactions(transaction_log); // Prints the transaction log
-        std::cout << "Total: " << total(transaction_log) << std::endl;
+        std::cout << "Total: " << total(transaction_log) << std::endl; // Prints the total again, but not for each day.
         return 0;
 }
