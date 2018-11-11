@@ -33,9 +33,10 @@ class Transaction
 {
 private:
 int m_day;
-double m_amount,m_total;
+//double m_amount,m_total;
 std::string m_description;
 public:
+double m_amount,m_total;
 Transaction();
 Transaction(int day, double amount, std::string description);
 void read();
@@ -64,7 +65,7 @@ void Transaction::read()
         std::cout << "Description of transaction: ";
         std::getline(std::cin,m_description);
 }
-double Transaction::total(const std::vector<Transaction> &v)
+double total(const std::vector<Transaction> &v)
 {
         double m_total = 0;
         for(int i=0; i<v.size(); i++)
@@ -76,12 +77,14 @@ void Transaction::print() const
         std::cout << "Day: " << m_day << std::endl;
         std::cout << "Amount: " << m_amount << std::endl;
         std::cout << "Description: " << m_description << std::endl;
-        std::cout << "Total: " << m_total << std::endl;
+        //std::cout << "Total: " << m_total << std::endl;
 }
 void print_transactions(std::vector<Transaction> &v)
 {
         for(int i = 0; i < v.size(); i++)
+        {
                 v[i].print();
+        }
 }
 
 int main()
@@ -90,6 +93,7 @@ int main()
         Transaction initial(1,1143.24,"Initial balance"); // Initial Balance
         transaction_log.push_back(initial); //push_back initial balance (object) onto day (vector of objects)
         print_transactions(transaction_log); //Prints Day 1
+        std::cout << "Total: " << total(transaction_log) << std::endl;
         bool more = true;
         while(more) // This loop takes in input for the rest of the month.
         {
@@ -103,5 +107,6 @@ int main()
                         more = false;
         }
         print_transactions(transaction_log); // Prints the transaction log
+        std::cout << "Total: " << total(transaction_log) << std::endl;
         return 0;
 }
