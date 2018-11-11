@@ -28,85 +28,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
-class Transaction
-{
-private:
-int m_day;
-//double m_amount,m_total;
-std::string m_description;
-public:
-double m_amount,m_total;
-Transaction();
-Transaction(int day, double amount, std::string description);
-void read();
-double total(const std::vector<Transaction> &v);
-void print() const;
-void print_transactions(std::vector<Transaction> &v);
-};
-
-Transaction::Transaction()
-{
-
-}
-Transaction::Transaction(int day, double amount, std::string description)
-{
-        m_day = day;
-        m_amount = amount;
-        m_description = description;
-}
-void Transaction::read()
-{
-        std::cout << "Day: ";
-        std::cin >> m_day;
-        std::cout << "Amount: ";
-        std::cin >> m_amount;
-        std::cin.ignore();
-        std::cout << "Description of transaction: ";
-        std::getline(std::cin,m_description);
-}
-double total(const std::vector<Transaction> &v)
-{
-        double m_total = 0;
-        for(int i=0; i<v.size(); i++)
-                m_total += v[i].m_amount;
-        return m_total;
-}
-void Transaction::print() const
-{
-        std::cout << "Day: " << m_day << std::endl;
-        std::cout << "Amount: " << m_amount << std::endl;
-        std::cout << "Description: " << m_description << std::endl;
-        //std::cout << "Total: " << m_total << std::endl;
-}
-void print_transactions(std::vector<Transaction> &v)
-{
-        for(int i = 0; i < v.size(); i++)
-        {
-                v[i].print();
-        }
-}
-
+#include "transaction.h"
+#include "transactionlog.h"
 int main()
 {
-        std::vector<Transaction> transaction_log; //creating the vector called transaction_log
-        Transaction initial(1,1143.24,"Initial balance"); // Initial Balance
-        transaction_log.push_back(initial); //push_back initial balance (object) onto day (vector of objects)
-        print_transactions(transaction_log); //Prints Day 1
-        std::cout << "Total: " << total(transaction_log) << std::endl; // Prints the total
-        bool more = true;
-        while(more) // This loop takes in input for the rest of the month.
-        {
-                Transaction t;
-                t.read();
-                transaction_log.push_back(t);
-                std::cout << "Enter another (Y/N)";
-                char response;
-                std::cin >> response;
-                if(response != 'y' && response != 'Y')
-                        more = false;
-        }
-        print_transactions(transaction_log); // Prints the transaction log
-        std::cout << "Total: " << total(transaction_log) << std::endl; // Prints the total again, but not for each day.
+
         return 0;
 }
