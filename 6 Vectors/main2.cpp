@@ -32,7 +32,7 @@ void read();
 int get_day();
 double get_transaction();
 std::string get_description();
-void print_transactions() const;
+void print_transactions(std::vector<Transactions> &v);
 };
 Transactions::Transactions() // Constructor
 {
@@ -68,11 +68,14 @@ std::string Transactions::get_description() // Returns the descriptions
 {
         return m_description;
 }
-void Transactions::print_transactions() const // Prints the entire statement
+void Transactions::print_transactions(std::vector<Transactions> &v) // Prints the entire statement
 {
-        std::cout << "Day:" << m_day << std::endl;
-        std::cout << "Transaction:" << m_transaction << std::endl;
-        std::cout << "Description:" << m_description << std::endl;
+        for (size_t i = 0; i < v.size(); i++)
+        {
+                std::cout << v[i].get_day() << std::endl;
+                std::cout << v[i].get_transaction() << std::endl;
+                std::cout << v[i].get_description() << std::endl;
+        }
 }
 
 class Statement
@@ -86,10 +89,10 @@ double m_average_balance;
 public:
 Statement();
 void read();
-void compute_balance();
+void compute_balance(std::vector<Transactions> &v);
 void print();
 double min_daily_balance(const std::vector<double> &v);
-double average_daily_balance(const std::vector<double> &v);
+double average_daily_balance(std::vector<double> &v);
 };
 Statement::Statement() // Constructor
 {
@@ -98,6 +101,8 @@ Statement::Statement() // Constructor
 void Statement::read() // Creates a balance
 {
         std::vector<Transactions> transactions;
+        Transactions initial(1,1143.24,"Initial Balance");
+        transactions.push_back(initial);
         bool more = true;
         while(more)
         {
@@ -110,27 +115,32 @@ void Statement::read() // Creates a balance
                 if(response != 'y' && response != 'Y')
                         more = false;
         }
-        compute_balance();
-}
-void Statement::compute_balance() // returns the daily balance, add up each balance and return it
-{
 
+        compute_balance(transactions);
+}
+void Statement::compute_balance(std::vector<Transactions> &v) // This function should compute the daily balance for each day of the month
+{
+        for (int i = 0; i < v.size(); i++)
+        {
+                daily_balance.push_back(v[i].get_transaction());
+        }
 }
 void Statement::print() // prints the statement, prints daily balance and finally the min/average interest
 {
-
+        std::cout << "The Minimum was: " << min_daily_balance(daily_balance) << std::endl;
+        std::cout << "The Average over thirty days was: " << average_daily_balance(daily_balance) << std::endl;
 }
 double Statement::min_daily_balance(const std::vector<double> &v) // The lowest monthly balance
 {
-        int m_min_balance = 0;
+        double m_min_balance = v[0];
         for (int i = 0; i < v.size(); i++)
                 if (v[i] < m_min_balance )
                         m_min_balance = v[i];
         return m_min_balance;
 }
-double Statement::average_daily_balance(const std::vector<double> &v) // The entire balance divided by 30
+double Statement::average_daily_balance(std::vector<double> &v) // The entire balance divided by 30 days
 {
-        double sum = 0;
+        double sum = 0.0;
         for (int i = 0; i < v.size(); i++)
                 sum += v[i];
         return sum / 30;
@@ -138,6 +148,7 @@ double Statement::average_daily_balance(const std::vector<double> &v) // The ent
 }
 int main()
 {
+
         Statement JohnD;
         JohnD.read();
         JohnD.print();
