@@ -97,7 +97,20 @@ Statement::Statement() // Constructor
 }
 void Statement::read() // Creates a balance
 {
-
+        std::vector<Transactions> transactions;
+        bool more = true;
+        while(more)
+        {
+                Transactions t;
+                t.read();
+                transactions.push_back(t);
+                std::cout << "Enter another (Y/N)";
+                char response;
+                std::cin >> response;
+                if(response != 'y' && response != 'Y')
+                        more = false;
+        }
+        compute_balance();
 }
 void Statement::compute_balance() // returns the daily balance, add up each balance and return it
 {
@@ -125,21 +138,8 @@ double Statement::average_daily_balance(const std::vector<double> &v) // The ent
 }
 int main()
 {
-        std::vector<Transactions> transaction; //Declaring transaction vector
-        std::vector<Statement> daily; //Declaring daily statement vector
-        bool more = true;
-        while(more)
-        {
-                Transactions t;
-                t.read(); // or add a transaction here
-                transaction.push_back(t);
-                //daily.push_back(t);
-                std::cout << "Enter another (Y/N)";
-                char response;
-                std::cin >> response;
-                if(response != 'y' && response != 'Y')
-                        more = false;
-        }
-        // transaction.print_transactions();
+        Statement JohnD;
+        JohnD.read();
+        JohnD.print();
         return 0;
 }
