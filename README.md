@@ -29,3 +29,4 @@
 
 ### Vectors
 >Nov-4 Vectors just seem like lists to me. I'm working on making a vector of objects in chapter 6.
+>So far I've been working on a bank statement-type program using vectors. It's a lot more complicated than I thought!
