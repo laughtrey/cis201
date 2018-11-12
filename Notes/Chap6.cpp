@@ -52,5 +52,8 @@ greeting [4] = '!';
 // the string is now Help!
 // [] is convenient than substr if you want to visit a string one character at a time
 
+Transactionlog = take the day, change in balance, and description
+transaction = the total account balance change each transaction
+HAVE TWO VECTORS
    return 0;
 }

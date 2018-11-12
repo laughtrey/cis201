@@ -136,28 +136,30 @@ void Statement::compute_balance(std::vector<Transactions> &v) // This function s
 }
 void Statement::print() // prints the statement, prints daily balance and finally the min/average interest
 {
-        std::cout << "The Minimum was: " << min_daily_balance(daily_balance) << std::endl;
-        std::cout << "The Average over thirty days was: " << average_daily_balance(daily_balance) << std::endl;
+        //I need to print the transactions vector and daily balance vector here somehow.
+        std::cout << "The Minimum interest was: " << min_daily_balance(daily_balance) << std::endl;
+        std::cout << "The Average over thirty days interest was: " << average_daily_balance(daily_balance) << std::endl;
 }
 double Statement::min_daily_balance(const std::vector<double> &v) // The lowest monthly balance
 {
+        double interest = .005;
         double m_min_balance = v[0];
         for (int i = 0; i < v.size(); i++)
                 if (v[i] < m_min_balance )
                         m_min_balance = v[i];
-        return m_min_balance;
+        return m_min_balance * interest;
 }
 double Statement::average_daily_balance(const std::vector<double> &v) // The entire balance divided by 30 days
 {
+        double interest = .005;
         double sum = 0.0;
         for (int i = 0; i < v.size(); i++)
                 sum += v[i];
-        return sum / 30;
+        return sum / 30 * interest;
 
 }
 int main()
 {
-
         Statement JohnD;
         JohnD.read();
         JohnD.print();
