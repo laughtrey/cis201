@@ -32,7 +32,6 @@ void read();
 int get_day();
 double get_transaction();
 std::string get_description();
-void print_transactions(std::vector<Transactions> &v);
 };
 Transactions::Transactions() // Constructor
 {
@@ -68,18 +67,6 @@ std::string Transactions::get_description() // Returns the descriptions
 {
    return m_description;
 }
-void Transactions::print_transactions(std::vector<Transactions> &v) // Prints the entire statement
-{
-   std::cout << "Day: " << m_day << std::endl;
-   std::cout << "Transaction: " << m_transaction << std::endl;
-   std::cout << "Description: " << m_description << std::endl;
-   /*for (size_t i = 0; i < v.size(); i++)
-      {
-           std::cout << v[i].get_day() << std::endl;
-           std::cout << v[i].get_transaction() << std::endl;
-           std::cout << v[i].get_description() << std::endl;
-      }*/
-}
 
 class Statement
 {
@@ -92,7 +79,7 @@ double m_average_balance;
 public:
 Statement();
 void read();
-void compute_balance(std::vector<Transactions> &v);
+std::vector<double> compute_balance(std::vector<Transactions> &v);
 void print();
 double min_daily_balance(const std::vector<double> &v);
 double average_daily_balance(const std::vector<double> &v);
@@ -105,6 +92,8 @@ void Statement::read() // Creates a balance
 {
    Transactions initial(1, 1143.24, "Initial Balance");
 
+   // Here I should create 29 more transactions and then end the program.
+   //
    transactions.push_back(initial);
    bool more = true;
    while (more)
@@ -123,18 +112,17 @@ void Statement::read() // Creates a balance
 
    compute_balance(transactions);
 }
-void Statement::compute_balance(std::vector<Transactions> &v) // This function should compute the daily balance for each day of the month and adds it to daily_balance vector
+std::vector<double> Statement::compute_balance(std::vector<Transactions> &v) // This function should compute the daily balance for each day of the month and adds it to daily_balance vector
 {
-   /*for (int i = 0; i < v.size(); i++)
-      {
-           daily_balance.push_back(v[i].get_transaction()); // This is just creating a vector of only the transactions, not adding them up each day.
-      }*/
+   const int MAX_DAY = 30;
+
    m_balance = 0;
-   for (size_t i = 0; i < v.size(); i++)
+   for (int i = 0; i < MAX_DAY; i++)
    {
       m_balance += v[i].get_transaction();
       daily_balance.push_back(m_balance);
    }
+   return daily_balance;
 }
 void Statement::print() // prints the statement, prints daily balance and finally the min/average interest
 {
@@ -144,6 +132,7 @@ void Statement::print() // prints the statement, prints daily balance and finall
       std::cout << "Transaction: " << transactions[i].get_transaction() << std::endl;
       std::cout << "Description: " << transactions[i].get_description() << std::endl;
       std::cout << "Balance: " << daily_balance[i] << std::endl;
+      std::cout << "=====================" << std::endl;
    }
    std::cout << "The Minimum interest was: " << min_daily_balance(daily_balance) << std::endl;
    std::cout << "The Average over thirty days interest was: " << average_daily_balance(daily_balance) << std::endl;
