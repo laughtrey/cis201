@@ -103,8 +103,8 @@ Statement::Statement() // Constructor
 }
 void Statement::read() // Creates a balance
 {
-   std::vector<Transactions> transactions;
    Transactions initial(1, 1143.24, "Initial Balance");
+
    transactions.push_back(initial);
    bool more = true;
    while (more)
@@ -138,14 +138,12 @@ void Statement::compute_balance(std::vector<Transactions> &v) // This function s
 }
 void Statement::print() // prints the statement, prints daily balance and finally the min/average interest
 {
-   // I need to print the std::vector<Transactions> transactions and std::vector<double> daily_balance vectors here somehow.
-   /*for (int i = 0; i < transactions.size(); i++)
-      {
-      std::cout << transactions[i];
-      }*/
-   for (int i = 0; i < daily_balance.size(); i++)
+   for (int i = 0; i < transactions.size(); i++)
    {
-      std::cout << "Balance:" << daily_balance[i] << std::endl;
+      std::cout << "Day: " << transactions[i].get_day() << std::endl;
+      std::cout << "Transaction: " << transactions[i].get_transaction() << std::endl;
+      std::cout << "Description: " << transactions[i].get_description() << std::endl;
+      std::cout << "Balance: " << daily_balance[i] << std::endl;
    }
    std::cout << "The Minimum interest was: " << min_daily_balance(daily_balance) << std::endl;
    std::cout << "The Average over thirty days interest was: " << average_daily_balance(daily_balance) << std::endl;
