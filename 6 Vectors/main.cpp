@@ -76,6 +76,8 @@ std::vector<double> daily_balance;
 double m_balance;
 double m_min_balance;
 double m_average_balance;
+const int MAX_DAY = 30;
+const double interest = .005;
 public:
 Statement();
 void read();
@@ -92,9 +94,9 @@ void Statement::read() // Creates a balance
 {
    Transactions initial(1, 1143.24, "Initial Balance");
 
-   // Here I should create 29 more transactions and then end the program.
-   //
    transactions.push_back(initial);
+   // Right here I should make an add_transaction function that pushes back functions into transactions vector.
+   // It works no matter how you put the data in.
    bool more = true;
    while (more)
    {
@@ -114,8 +116,6 @@ void Statement::read() // Creates a balance
 }
 std::vector<double> Statement::compute_balance(std::vector<Transactions> &v) // This function should compute the daily balance for each day of the month and adds it to daily_balance vector
 {
-   const int MAX_DAY = 30;
-
    m_balance = 0;
    for (int i = 0; i < MAX_DAY; i++)
    {
@@ -126,6 +126,7 @@ std::vector<double> Statement::compute_balance(std::vector<Transactions> &v) // 
 }
 void Statement::print() // prints the statement, prints daily balance and finally the min/average interest
 {
+   std::cout << "=====================" << std::endl;
    for (int i = 0; i < transactions.size(); i++)
    {
       std::cout << "Day: " << transactions[i].get_day() << std::endl;
@@ -139,7 +140,6 @@ void Statement::print() // prints the statement, prints daily balance and finall
 }
 double Statement::min_daily_balance(const std::vector<double> &v) // The lowest monthly balance
 {
-   double interest = .005;
    double m_min_balance = v[0];
 
    for (int i = 0; i < v.size(); i++)
@@ -151,16 +151,15 @@ double Statement::min_daily_balance(const std::vector<double> &v) // The lowest 
    }
    return m_min_balance * interest;
 }
-double Statement::average_daily_balance(const std::vector<double> &v) // The entire balance divided by 30 days
+double Statement::average_daily_balance(const std::vector<double> &v) // Every days balance added up and divided by 30 days TODO
 {
-   double interest = .005;
-   double sum = 0.0;
+   double sum = 0;
 
-   for (int i = 0; i < v.size(); i++)
+   for (int i = 0; i < MAX_DAY; i++)
    {
       sum += v[i];
    }
-   return sum / 30 * interest;
+   return (sum / MAX_DAY) * interest;
 
 }
 int main()
