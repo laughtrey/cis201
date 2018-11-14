@@ -12,7 +12,7 @@ std::vector<double> daily_balance;
 double m_balance;
 double m_min_balance;
 double m_average_balance;
-const int MAX_DAY = 31;
+const int MAX_DAY = 30;
 const double interest = .005;
 public:
 Statement();
