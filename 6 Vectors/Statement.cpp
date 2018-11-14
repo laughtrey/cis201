@@ -48,6 +48,8 @@ void Statement::read() // Creates a balance can take data from anywhere, .txt fi
    transactions.push_back(day15);
    Transactions day16(16,1200, "ATM Deposit");
    transactions.push_back(day16);
+   Transactions day16second(16,-100, "Check 2146");
+   transactions.push_back(day16second);
    Transactions day17(17,-200, "Check 2147");
    transactions.push_back(day17);
    Transactions day18(18,0, "");
