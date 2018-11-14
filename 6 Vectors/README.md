@@ -2,7 +2,14 @@
 
 File: main.cpp
 
-Description: This program will emulate a bank transaction and account balance statement. Input the day and transactions, along with a short description and the program will print a 30-day statement with .5% interest.
+Description: This program will print out a bank statement. The program input
+is a sequence of transactions. It will then compute the interest earned by
+the account. Useing both the minimum daily balance and
+the average daily balance methods for computing interest, and print out both values.
+Using an interest rate of 0.5 percent per month, and assuming the month has 30
+days. It assumes that the input data are sorted by the date. It also
+assumes that the first entry is of the form
+1 1143.24 Initial balance
 
 Author: Raymond Laughrey
 

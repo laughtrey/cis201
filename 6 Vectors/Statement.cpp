@@ -14,34 +14,75 @@ Statement::Statement() // Constructor
 {
 
 }
-void Statement::read() // Creates a balance
+void Statement::read() // Creates a balance can take data from anywhere, .txt file or manual input.
 {
    Transactions initial(1, 1143.24, "Initial Balance");
-
    transactions.push_back(initial);
-   // Right here I should make an add_transaction function that pushes back functions into transactions vector.
-   // It works no matter how you put the data in.
-   bool more = true;
-   while (more)
-   {
-      Transactions t;
-      t.read();
-      transactions.push_back(t);
-      std::cout << "Enter another (Y/N)";
-      char response;
-      std::cin >> response;
-      if (response != 'y' && response != 'Y')
-      {
-         more = false;
-      }
-   }
-
+   Transactions day2(2, -224, "Check 2140");
+   transactions.push_back(day2);
+   Transactions day3(3,-193, "Check 2141");
+   transactions.push_back(day3);
+   Transactions day4(4, 500, "ATM Desposit");
+   transactions.push_back(day4);
+   Transactions day5(5,-10, "Check 2142");
+   transactions.push_back(day5);
+   Transactions day6(6,-105, "Check 2143");
+   transactions.push_back(day6);
+   Transactions day7(7,-210, "Check 2144");
+   transactions.push_back(day7);
+   Transactions day8(8,-201, "Check 2145");
+   transactions.push_back(day8);
+   Transactions day9(9,0, "");
+   transactions.push_back(day9);
+   Transactions day10(10,0, "");
+   transactions.push_back(day10);
+   Transactions day11(11,0, "");
+   transactions.push_back(day11);
+   Transactions day12(12,0, "");
+   transactions.push_back(day12);
+   Transactions day13(13,0, "");
+   transactions.push_back(day13);
+   Transactions day14(14,0, "");
+   transactions.push_back(day14);
+   Transactions day15(15,0, "");
+   transactions.push_back(day15);
+   Transactions day16(16,1200, "ATM Deposit");
+   transactions.push_back(day16);
+   Transactions day17(17,-200, "Check 2147");
+   transactions.push_back(day17);
+   Transactions day18(18,0, "");
+   transactions.push_back(day18);
+   Transactions day19(19,0, "");
+   transactions.push_back(day19);
+   Transactions day20(20,900, "ATM Deposit");
+   transactions.push_back(day20);
+   Transactions day21(21,0, "");
+   transactions.push_back(day21);
+   Transactions day22(22,0, "");
+   transactions.push_back(day22);
+   Transactions day23(23,0, "");
+   transactions.push_back(day23);
+   Transactions day24(24,0, "");
+   transactions.push_back(day24);
+   Transactions day25(25,0, "");
+   transactions.push_back(day25);
+   Transactions day26(26,0, "");
+   transactions.push_back(day26);
+   Transactions day27(27,0, "");
+   transactions.push_back(day27);
+   Transactions day28(28,0, "");
+   transactions.push_back(day28);
+   Transactions day29(29,0, "");
+   transactions.push_back(day29);
+   Transactions day30(30,700, "ATM Deposit");
+   transactions.push_back(day30);
    compute_balance(transactions);
 }
 std::vector<double> Statement::compute_balance(std::vector<Transactions> &v) // This function should compute the daily balance for each day of the month and adds it to daily_balance vector
 {
-   m_balance = 0;
-   for (int i = 0; i < MAX_DAY; i++)
+   std::vector<double> daily_balances;
+   m_balance = 0.0;
+   for (int i = 0; i < v.size(); i++)
    {
       m_balance += v[i].get_transaction();
       daily_balance.push_back(m_balance);
