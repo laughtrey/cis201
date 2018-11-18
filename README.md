@@ -27,6 +27,11 @@
 >Classes and objects took me a bit to wrap my head around, but now I see how practical
 >C++ is. 5.4 is a group project too!
 
-### Vectors
+### Vectors and Arrays
 >Nov-4 Vectors just seem like lists to me. I'm working on making a vector of objects in chapter 6.
 >So far I've been working on a bank statement-type program using vectors. It's a lot more complicated than I thought!
+>My vector project kind of works. I think I need to be more careful when iterating over vectors and use more if conditions.
+
+### Pointers
+>Pointers are awesome, they save you so much time and memory. I'm exploring how to work with employee listings and
+>bank accounts linked to them.
