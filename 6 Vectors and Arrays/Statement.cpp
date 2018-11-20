@@ -83,14 +83,25 @@ void Statement::read() // Creates a balance can take data from anywhere, .txt fi
 }
 std::vector<double> Statement::compute_balance(std::vector<Transactions> &v) // This function should compute the daily balance for each day of the month and adds it to daily_balance vector
 {
-   std::vector<double> daily_balances;
    m_balance = 0.0;
-   for (int i = 0; i < v.size(); i++)
+   for (int day = 0; day < MAX_DAY(); day++)
    {
-      m_balance += v[i].get_transaction();
+      m_balance += sum_total_for_day(day+1);
       daily_balance.push_back(m_balance);
    }
    return daily_balance;
+}
+double Statement::sum_total_for_day(int day)
+{
+  double total = 0;
+  for (int i = 0; i < transactions.size(); i++)
+  {
+    if (day == transactions[i].get_day)
+    {
+      total = total + transactions[i].get_transaction
+    }
+  }
+  return total;
 }
 void Statement::print() // prints the statement, prints daily balance and finally the min/average interest
 {
