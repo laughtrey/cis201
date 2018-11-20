@@ -18,6 +18,7 @@ public:
 Statement();
 void read();
 std::vector<double> compute_balance(std::vector<Transactions> &v);
+double sum_total_for_day(int day);
 void print();
 double min_daily_balance(const std::vector<double> &v);
 double average_daily_balance(const std::vector<double> &v);
