@@ -18,6 +18,7 @@ void Statement::read() // Creates a balance can take data from anywhere, .txt fi
 {
    Transactions initial(1, 1143.24, "Initial Balance");
    transactions.push_back(initial);
+   //transactions.push_back(Transaction(1, 1143.24, "Initial Balance")) create and push back in one line
    Transactions day2(2, -224, "Check 2140");
    transactions.push_back(day2);
    Transactions day3(3,-193, "Check 2141");
