@@ -96,9 +96,9 @@ double Statement::sum_total_for_day(int day)
   double total = 0;
   for (int i = 0; i < transactions.size(); i++)
   {
-    if (day == transactions[i].get_day)
+    if (day == transactions[i].get_day())
     {
-      total = total + transactions[i].get_transaction
+      total = total + transactions[i].get_transaction();
     }
   }
   return total;
