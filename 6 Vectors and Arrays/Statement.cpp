@@ -116,7 +116,7 @@ double Statement::min_daily_balance(const std::vector<double> &v) // The lowest 
          m_min_balance = v[i];
       }
    }
-   return m_min_balance * interest;
+   return m_min_balance; //* interest;
 }
 double Statement::average_daily_balance(const std::vector<double> &v) // Every days balance added up and divided by 30 days TODO
 {
@@ -126,6 +126,6 @@ double Statement::average_daily_balance(const std::vector<double> &v) // Every d
    {
       sum += v[i];
    }
-   return (sum / MAX_DAY) * interest;
+   return (sum / MAX_DAY); //* interest;
 
 }
