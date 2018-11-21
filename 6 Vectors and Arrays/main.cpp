@@ -23,5 +23,6 @@ int main()
         Statement RayL;
         RayL.read();
         RayL.print();
+        std::cin.get();
         return 0;
 }
