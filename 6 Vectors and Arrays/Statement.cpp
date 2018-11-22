@@ -37,34 +37,41 @@ std::vector<double> Statement::compute_balance(std::vector<Transactions> &v) // 
    m_balance = 0.0;
    for (int day = 0; day < MAX_DAY; day++)
    {
-      m_balance += sum_total_for_day(day+1);
+      m_balance += sum_total_for_day(day + 1);
       daily_balance.push_back(m_balance);
    }
    return daily_balance;
 }
 double Statement::sum_total_for_day(int day)
 {
-  double total = 0;
-  for (int i = 0; i < transactions.size(); i++)
-  {
-    if (day == transactions[i].get_day())
-    {
-      total = total + transactions[i].get_transaction();
-    }
-  }
-  return total;
+   double total = 0;
+
+   for (int i = 0; i < transactions.size(); i++)
+   {
+      if (day == transactions[i].get_day())
+      {
+         total = total + transactions[i].get_transaction();
+      }
+   }
+   return total;
 }
 void Statement::print() // prints the statement, prints daily balance and finally the min/average interest
 {
+   int index = 0;
+
    std::cout << "=====STATEMENT=====" << std::endl;
    for (int i = 0; i < MAX_DAY; i++)
    {
-      if (i == transactions[i].get_day());
+      if (i == transactions[index].get_day()) // Having issues printing multiple transactions per day.
       {
-         std::cout << "Day: " << transactions[i].get_day() << std::endl; // Getting Seg Fault Error here.
-         std::cout << "Descp: " << transactions[i].get_description() << std::endl;
+         std::cout << "================" << std::endl;
+         std::cout << "Day: " << transactions[index].get_day() << std::endl;
+         std::cout << "Transaction: " << transactions[index].get_transaction() << std::endl;
+         std::cout << "Description: " << transactions[index].get_description() << std::endl;
+         std::cout << "================" << std::endl;
+         index++;
       }
-      std::cout << "Balance: " << daily_balance[i] << std::endl;
+
    }
    std::cout << "The Minimum interest was: " << std::setprecision(2) << std::fixed << min_daily_balance(daily_balance) * interest << std::endl;
    std::cout << "The Average over thirty days interest was: " << std::setprecision(2) << std::fixed << average_daily_balance(daily_balance) * interest << std::endl;
@@ -81,7 +88,7 @@ double Statement::min_daily_balance(const std::vector<double> &v) // The lowest 
          m_min_balance = v[i];
       }
    }
-   return m_min_balance; //* interest;
+   return m_min_balance; // * interest;
 }
 double Statement::average_daily_balance(const std::vector<double> &v) // Every days balance added up and divided by 30 days
 {
@@ -91,6 +98,6 @@ double Statement::average_daily_balance(const std::vector<double> &v) // Every d
    {
       sum += v[i];
    }
-   return (sum / MAX_DAY); //* interest;
+   return (sum / MAX_DAY); // * interest;
 
 }
