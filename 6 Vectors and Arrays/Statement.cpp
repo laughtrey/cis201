@@ -71,7 +71,8 @@ void Statement::print() // prints the statement, prints daily balance and finall
          std::cout << "================" << std::endl;
          index++;
       }
-
+      std::cout << "Day: " << transactions[index].get_day() << "Balance: " << daily_balance[i] << std::endl;
+      std::cout << "===============" << std::endl;
    }
    std::cout << "The Minimum interest was: " << std::setprecision(2) << std::fixed << min_daily_balance(daily_balance) * interest << std::endl;
    std::cout << "The Average over thirty days interest was: " << std::setprecision(2) << std::fixed << average_daily_balance(daily_balance) * interest << std::endl;
