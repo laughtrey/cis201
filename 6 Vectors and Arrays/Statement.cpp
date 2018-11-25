@@ -71,7 +71,7 @@ void Statement::print() // prints the statement, prints daily balance and finall
          std::cout << "================" << std::endl;
          index++;
       }
-      std::cout<< "Balance: " << daily_balance[i] << std::endl;
+      std::cout<< "Balance for day "<< i+1 << ": " << daily_balance[i] << std::endl;
       std::cout << "===============" << std::endl;
    }
    std::cout << "The Minimum interest was: " << std::setprecision(2) << std::fixed << min_daily_balance(daily_balance) * interest << std::endl;
