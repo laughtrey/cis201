@@ -20,8 +20,9 @@
 
 int main()
 {
-        Statement RayL;
-        RayL.read();
-        RayL.print();
-        return 0;
+   Statement RayL;
+
+   RayL.read();
+   RayL.print();
+   return 0;
 }

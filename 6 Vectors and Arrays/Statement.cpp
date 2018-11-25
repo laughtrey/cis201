@@ -1,6 +1,6 @@
 /*
    File: Statement.cpp
-   Description: Statement function implementations.
+   Description: Statement class function implementations.
    Author: Raymond Laughrey
    Email: raymonl4963@student.vvc.edu
    Date of Creation: 11/10/2018, 3:31:50 PM
@@ -32,7 +32,7 @@ void Statement::read() // Creates a balance can take data from anywhere, .txt fi
    transactions.push_back(Transactions(30, 700, "ATM Deposit"));
    compute_balance(transactions);
 }
-std::vector<double> Statement::compute_balance(std::vector<Transactions> &v) // This function should compute the daily balance for each day of the month and adds it to daily_balance vector
+std::vector<double> Statement::compute_balance(std::vector<Transactions> &v) // This function takes the daily transaction total and adds it to daily_balance vector
 {
    m_balance = 0.0;
    for (int day = 0; day < MAX_DAY; day++)
@@ -42,7 +42,7 @@ std::vector<double> Statement::compute_balance(std::vector<Transactions> &v) // 
    }
    return daily_balance;
 }
-double Statement::sum_total_for_day(int day)
+double Statement::sum_total_for_day(int day) // This function adds up the entire days transactions and returns the total for a single day.
 {
    double total = 0;
 
@@ -62,7 +62,7 @@ void Statement::print() // prints the statement, prints daily balance and finall
    std::cout << "=====STATEMENT=====" << std::endl;
    for (int i = 0; i < MAX_DAY; i++)
    {
-      while (i+1 == transactions[index].get_day())
+      while (i + 1 == transactions[index].get_day())
       {
          std::cout << "===Transaction===" << std::endl;
          std::cout << "Day: " << transactions[index].get_day() << std::endl;
@@ -71,14 +71,14 @@ void Statement::print() // prints the statement, prints daily balance and finall
          std::cout << "================" << std::endl;
          index++;
       }
-      std::cout<< "Balance for day "<< i+1 << ": " << daily_balance[i] << std::endl;
+      std::cout << "Balance for day " << i + 1 << ": " << daily_balance[i] << std::endl;
       std::cout << "===============" << std::endl;
    }
-   std::cout << "The Minimum interest was: " << std::setprecision(2) << std::fixed << min_daily_balance(daily_balance) * interest << std::endl;
-   std::cout << "The Average over thirty days interest was: " << std::setprecision(2) << std::fixed << average_daily_balance(daily_balance) * interest << std::endl;
+   std::cout << "The Minimum balace was: " << min_daily_balance(daily_balance) << " Interest: " << std::setprecision(2) << std::fixed << min_daily_balance(daily_balance) * interest << std::endl;
+   std::cout << "The Average balance over 30 days was: " << average_daily_balance(daily_balance) << " Interest: " << std::setprecision(2) << std::fixed << average_daily_balance(daily_balance) * interest << std::endl;
 
 }
-double Statement::min_daily_balance(const std::vector<double> &v) // The lowest monthly balance
+double Statement::min_daily_balance(const std::vector<double> &v) // This function finds the lowest monthly balance
 {
    double m_min_balance = v[0];
 
@@ -91,7 +91,7 @@ double Statement::min_daily_balance(const std::vector<double> &v) // The lowest 
    }
    return m_min_balance; // * interest;
 }
-double Statement::average_daily_balance(const std::vector<double> &v) // Every days balance added up and divided by 30 days
+double Statement::average_daily_balance(const std::vector<double> &v) // This function adds up every day and then divides it by the MAX_DAY to find the average.
 {
    double sum = 0;
 

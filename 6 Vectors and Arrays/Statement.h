@@ -3,13 +3,12 @@
 /*
    class defintions for balance statements
  */
-
 class Statement
 {
 private:
 std::vector<Transactions> transactions;
 std::vector<double> daily_balance;
-double m_balance,m_min_balance,m_average_balance;
+double m_balance, m_min_balance, m_average_balance;
 const int MAX_DAY = 30;
 const double interest = .005;
 public:
