@@ -60,7 +60,7 @@ void Statement::print() // prints the statement, prints daily balance and finall
    int index = 0;
 
    std::cout << "=====STATEMENT=====" << std::endl;
-   for (int i = 0; i < daily_balance.size(); i++)
+   for (int i = 0; i < MAX_DAY; i++)
    {
       while (i+1 == transactions[index].get_day()) // Having issues printing multiple transactions per day.
       {
