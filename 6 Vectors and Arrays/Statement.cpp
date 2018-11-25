@@ -60,9 +60,9 @@ void Statement::print() // prints the statement, prints daily balance and finall
    int index = 0;
 
    std::cout << "=====STATEMENT=====" << std::endl;
-   for (int i = 0; i < MAX_DAY; i++)
+   for (int i = 0; i < daily_balance.size(); i++)
    {
-      if (i == transactions[index].get_day()) // Having issues printing multiple transactions per day.
+      while (i+1 == transactions[index].get_day()) // Having issues printing multiple transactions per day.
       {
          std::cout << "================" << std::endl;
          std::cout << "Day: " << transactions[index].get_day() << std::endl;
@@ -71,7 +71,7 @@ void Statement::print() // prints the statement, prints daily balance and finall
          std::cout << "================" << std::endl;
          index++;
       }
-      std::cout << "Day: " << transactions[index].get_day() << "Balance: " << daily_balance[i] << std::endl;
+      std::cout<< "Balance: " << daily_balance[i] << std::endl;
       std::cout << "===============" << std::endl;
    }
    std::cout << "The Minimum interest was: " << std::setprecision(2) << std::fixed << min_daily_balance(daily_balance) * interest << std::endl;
