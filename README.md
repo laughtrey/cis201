@@ -33,5 +33,8 @@
 >My vector project kind of works. I think I need to be more careful when iterating over vectors and use more if conditions.
 
 ### Pointers
->Pointers are awesome, they save you so much time and memory. I'm exploring how to work with employee listings and
+>Nov-12 Pointers are awesome, they save you so much time and memory. I'm exploring how to work with employee listings and
 >bank accounts linked to them.
+
+### Streams
+>Nov-27 Working with file streams. Can read info and data from .txt files and output to .txt as well.
