@@ -19,8 +19,8 @@ Employee::Employee(std::string lastname, std::string firstname, double initial_s
 void Employee::read()
 {
    payroll.push_back(Employee("Doe", "Jon", 35000));
-   payroll.push_back(Employee("Flintstone", "Fred", 33000));
-   payroll.push_back(Employee("Flintstone", "Wilma", 34000));
+   payroll.push_back(Employee("Flintstone", "Fred", 70000));
+   payroll.push_back(Employee("Flintstone", "Wilma", 70000));
    payroll.push_back(Employee("Hacker", "Harry", 32000));
    payroll.push_back(Employee("Stroustrup", "Bjarne", 36000));
    payroll.push_back(Employee("Tester", "Ted", 30000));
@@ -37,7 +37,7 @@ void Employee::create_accounts(std::vector<Employee> &v)
    {
       if(payroll[i - 1].get_lastname() == payroll[i].get_lastname()) // they share the same last name
      {
-        BankAccount* acc = new BankAccount("Checking", 1, 0);
+        BankAccount *acc = new BankAccount("Checking", 1, 0);
         payroll[i - 1].set_account(acc);
         payroll[i].set_account(acc);
      }
@@ -75,7 +75,7 @@ void Employee::deposit(std::vector<Employee> &v)
       v[i].account->set_amount(bonus);
    }
 }
-void Employee::print() const
+void Employee::print()
 {
    for (int i = 0; i < payroll.size(); i++)
    {
@@ -91,6 +91,7 @@ void Employee::print() const
     //   if (payroll[i].account != NULL)
     //   {
     //      delete payroll[i].account;
+    //      payroll[i].account = NULL;
     //   }
     // }
 }

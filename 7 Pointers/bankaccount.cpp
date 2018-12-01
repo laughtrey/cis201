@@ -27,7 +27,7 @@ double BankAccount::get_number()
 }
 double BankAccount::set_amount(double a)
 {
-   m_amount = a;
+   m_amount += a;
 }
 double BankAccount::get_amount()
 {
