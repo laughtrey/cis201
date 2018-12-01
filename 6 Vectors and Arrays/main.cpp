@@ -15,12 +15,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Transactions.h"
-#include "Statement.h"
+#include "transaction.h"
+#include "statement.h"
 
 int main()
 {
-   Statement RayL;
+   statement RayL;
 
    RayL.read();
    RayL.print();
