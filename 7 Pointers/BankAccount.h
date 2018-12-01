@@ -13,10 +13,9 @@ std::string m_account_name;
 public:
 BankAccount();
 BankAccount(std::string name, double number, double amount);
-void deposit();
-void print();
 std::string get_name();
 double get_number();
+double set_amount(double a);
 double get_amount();
 
 };

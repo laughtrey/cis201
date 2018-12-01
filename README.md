@@ -30,7 +30,7 @@
 ### Vectors and Arrays
 >Nov-4 Vectors just seem like lists to me. I'm working on making a vector of objects in chapter 6.
 >So far I've been working on a bank statement-type program using vectors. It's a lot more complicated than I thought!
->My vector project kind of works. I think I need to be more careful when iterating over vectors and use more if conditions.
+>The bank statement project was the first huge hurdle of the class. It was fun to work on, and eventually I got it down.
 
 ### Pointers
 >Nov-12 Pointers are awesome, they save you so much time and memory. I'm exploring how to work with employee listings and

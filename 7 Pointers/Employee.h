@@ -13,9 +13,10 @@
 class Employee
 {
 private:
-   std::string name;
+   std::string m_lastname, m_firstname;
    double salary;
    BankAccount* account;
+   std::vector<Employee> payroll;
 public:
    /**
       Constructs an employee with empty name and no salary.
@@ -26,10 +27,16 @@ public:
       @param employee_name the employee name
       @param initial_salary the initial salary
    */
-   Employee(std::string employee_name, double initial_salary);
+   Employee(std::string lastname, std::string firstname, double initial_salary);
    /**
       Sets the salary of this employee.
       @param new_salary the new salary value
+   */
+   void read();
+   void create_accounts(std::vector<Employee> &v);
+
+   /**
+   Reads in the list of employees and pushes them back to the vector
    */
    void set_salary(double new_salary);
    /**
@@ -38,12 +45,13 @@ public:
    */
    double get_salary() const;
    /**
-      Gets the name of this employee.
-      @return the employee name
+      Gets the first name of this employee.
+      @return the employee first name
    */
-   std::string get_name() const;
+   std::string get_firstname() const;
+   std::string get_lastname() const;
    void set_account(BankAccount* r);
-   double get_account() const;
+   void deposit(std::vector<Employee> &v);
    void print() const;
 
 };
