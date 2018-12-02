@@ -1,6 +1,6 @@
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
-#include "BankAccount.h"
+#include "bankaccount.h"
 
 #include <string>
 #include <vector>
@@ -10,30 +10,30 @@
    in the book "Computing Concepts with C++ Essentials"
 */
 
-class Employee
+class employee
 {
 private:
    std::string m_lastname, m_firstname;
    double salary;
-   BankAccount* account;
-   std::vector<Employee> payroll;
+   bankaccount* account;
+   std::vector<employee> payroll;
 public:
    /**
       Constructs an employee with empty name and no salary.
    */
-   Employee();
+   employee();
    /**
       Constructs an employee with a given name and salary.
       @param employee_name the employee name
       @param initial_salary the initial salary
    */
-   Employee(std::string lastname, std::string firstname, double initial_salary);
+   employee(std::string lastname, std::string firstname, double initial_salary);
    /**
       Sets the salary of this employee.
       @param new_salary the new salary value
    */
    void read();
-   void create_accounts(std::vector<Employee> &v);
+   void create_accounts(std::vector<employee> &v);
 
    /**
    Reads in the list of employees and pushes them back to the vector
@@ -50,8 +50,9 @@ public:
    */
    std::string get_firstname() const;
    std::string get_lastname() const;
-   void set_account(BankAccount* r);
-   void deposit(std::vector<Employee> &v);
+   void set_account(bankaccount* r);
+   bankaccount get_account();
+   void deposit(std::vector<employee> &v);
    void print();
 
 };

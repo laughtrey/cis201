@@ -4,18 +4,18 @@
 #include<vector>
 #include<iostream>
 
-class BankAccount
+class bankaccount
 {
 private:
-std::vector<BankAccount> accounts;
+std::vector<bankaccount> accounts;
 double m_account_number, m_amount;
 std::string m_account_name;
 public:
-BankAccount();
-BankAccount(std::string name, double number, double amount);
+bankaccount();
+bankaccount(std::string name, double number, double amount);
 std::string get_name();
 double get_number();
-double set_amount(double a);
+void set_amount(double a);
 double get_amount();
 
 };
