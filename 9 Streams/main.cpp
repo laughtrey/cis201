@@ -20,7 +20,5 @@ int main()
    std::cin >> x;
    subject.create_listing();
    subject.create_report(x);
-   std::cin.ignore();
-   std::cin.get();
    return 0;
 }
