@@ -18,6 +18,9 @@ int main()
    int x = 0;
    std::cout << "Please enter your student ID (Enter 11234 or 11254 or 11324 or 21883): ";
    std::cin >> x;
+   subject.create_listing();
    subject.create_report(x);
+   std::cin.ignore();
+   std::cin.get();
    return 0;
 }

@@ -1,0 +1,6 @@
+Student ID: 11234
+CSC1    F-
+CSC2    D-
+CSC46     C
+CSC151    C-
+MTH151    B-

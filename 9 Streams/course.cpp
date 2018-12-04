@@ -3,6 +3,7 @@
 #include<fstream>
 #include<sstream>
 #include<string>
+#include<iomanip>
 #include "course.h"
 #include "grade.h"
 
@@ -10,21 +11,31 @@ course::course()
 {
 
 }
-void course::create_report(int &id)
+course::course(std::string n, std::string cn)
 {
-   //This is where I would use the classes.txt file to open each class listed and search
-   //using a new variable of each getline += ".txt"
-   //but I cant.
-   /*
+   m_filename = n;
+   m_course_name = cn;
+}
+std::string course::get_filename() // Returns m_filename
+{
+   return m_filename;
+}
+std::string course::get_course_name() // Returns m_course_name
+{
+   return m_course_name;
+}
+void course::create_listing() // This function should create the .txt variable to open each class offered.
+{
    std::ifstream classes("./data/classes.txt", std::ios::in);
    if (classes.is_open())
    {
+      std::string folder = "./data/";
       std::string line;
       std::string txt = ".txt";
       while (std::getline(classes, line))
       {
-         std::string variabletoopen = line + txt;
-         std::cout << variabletoopen << '\n';
+         std::string filename = folder + line + txt;
+         listing.push_back(course(filename, line));
       }
       classes.close();
    }
@@ -32,123 +43,36 @@ void course::create_report(int &id)
    {
       std::cerr << "Unable to open file\n";
    }
-   */
-   //
-   //
-   //------------------I would put the variable here.
-   std::ifstream csc1("./data/CSC1.txt", std::ios::in);
-   if (csc1.is_open())
+}
+void course::create_report(int &id) // This function pushes back the student ID and grade into a vector for each class they're in.
+{
+   for (int i = 0; i < listing.size(); i++)
    {
-      std::string line;
-      std::string class_name = "CSC1";
-      while (std::getline(csc1, line))
+      std::ifstream classtxt(listing[i].get_filename().c_str(), std::ios::in);
+      if (classtxt.is_open())
       {
-         std::istringstream instr(line);
-         int class_id;
-         std::string class_grade;
-         instr >> class_id >> class_grade;
-         if (id == class_id)
+         std::string line;
+         std::string class_name = listing[i].get_course_name();
+         while (std::getline(classtxt, line))
          {
-            report.push_back(grade(id, class_name, class_grade));
+            std::istringstream instr(line);
+            int class_id;
+            std::string class_grade;
+            instr >> class_id >> class_grade;
+            if (id == class_id)
+            {
+               report.push_back(grade(id, class_name, class_grade));
+            }
          }
+         classtxt.close();
       }
-      csc1.close();
-   }
-   else
-   {
-      std::cerr << "Unable to open file\n";
-   }
-   std::ifstream csc2("./data/CSC2.txt", std::ios::in);
-   if (csc2.is_open())
-   {
-      std::string line;
-      std::string class_name = "CSC2";
-      while (std::getline(csc2, line))
-      {
-         std::istringstream instr(line);
-         int class_id;
-         std::string class_grade;
-         instr >> class_id >> class_grade;
-         if (id == class_id)
-         {
-            report.push_back(grade(id, class_name, class_grade));
-         }
+      else {
+         std::cerr << "Unable to open file\n";
       }
-      csc2.close();
-   }
-   else
-   {
-      std::cerr << "Unable to open file\n";
-   }
-   std::ifstream csc46("./data/CSC46.txt", std::ios::in);
-   if (csc46.is_open())
-   {
-      std::string line;
-      std::string class_name = "CSC46";
-      while (std::getline(csc46, line))
-      {
-         std::istringstream instr(line);
-         int class_id;
-         std::string class_grade;
-         instr >> class_id >> class_grade;
-         if (id == class_id)
-         {
-            report.push_back(grade(id, class_name, class_grade));
-         }
-      }
-      csc46.close();
-   }
-   else
-   {
-      std::cerr << "Unable to open file\n";
-   }
-   std::ifstream csc151("./data/CSC151.txt", std::ios::in);
-   if (csc151.is_open())
-   {
-      std::string line;
-      std::string class_name = "CSC151";
-      while (std::getline(csc151, line))
-      {
-         std::istringstream instr(line);
-         int class_id;
-         std::string class_grade;
-         instr >> class_id >> class_grade;
-         if (id == class_id)
-         {
-            report.push_back(grade(id, class_name, class_grade));
-         }
-      }
-      csc151.close();
-   }
-   else
-   {
-      std::cerr << "Unable to open file\n";
-   }
-   std::ifstream mth151("./data/MTH151.txt", std::ios::in);
-   if (mth151.is_open())
-   {
-      std::string line;
-      std::string class_name = "MTH151";
-      while (std::getline(mth151, line))
-      {
-         std::istringstream instr(line);
-         int class_id;
-         std::string class_grade;
-         instr >> class_id >> class_grade;
-         if (id == class_id)
-         {
-            report.push_back(grade(id, class_name, class_grade));
-         }
-      }
-      mth151.close();
-   }
-   else
-   {
-      std::cerr << "Unable to open file\n";
    }
    print(report);
 }
-void course::print(std::vector<grade> &v)
+void course::print(std::vector<grade> &v) //Prints the report to the screen and report.txt
 {
    std::cout << "Student ID: " << v[0].get_student_id() << '\n';
    for (int i = 0; i < v.size(); i++)
