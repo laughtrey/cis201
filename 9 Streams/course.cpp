@@ -153,7 +153,7 @@ void course::print(std::vector<grade> &v)
    std::cout << "Student ID: " << v[0].get_student_id() << '\n';
    for (int i = 0; i < v.size(); i++)
    {
-      std::cout << v[i].get_course_name() << " " << v[i].get_grade() << '\n';
+      std::cout << v[i].get_course_name() << " " << std::right << std::setw(5) << v[i].get_grade() << '\n';
    }
    std::ofstream report("./data/report.txt", std::ios::out);
    if (report.is_open())
@@ -161,7 +161,7 @@ void course::print(std::vector<grade> &v)
    report << "Student ID: " << v[0].get_student_id() << std::endl;
       for (int i = 0; i < v.size(); i++)
       {
-         report << v[i].get_course_name() << " " << v[i].get_grade() << std::endl;
+         report << v[i].get_course_name() << " " << std::right << std::setw(5) << v[i].get_grade() << std::endl;
       }
       report.close();
    }
