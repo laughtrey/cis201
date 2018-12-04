@@ -8,7 +8,6 @@
  */
 #include <iostream>
 #include <fstream>
-#include "student.h"
 #include "course.h"
 #include "grade.h"
 
