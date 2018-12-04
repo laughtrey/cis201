@@ -9,13 +9,13 @@
 class student
 {
 private:
-   double m_id;
-   std::vector<course> m_enrolled;
+   int m_id;
 
 public:
    student();
-   student(double id,std::vector<course> &v);
-   double get_id();
-   std::vector<course> get_enrolled();
+   student(int &id);
+   int get_id();
+   // void set_enrolled(std::vector<course> &v);
+   // std::vector<course> get_enrolled();
 };
 #endif

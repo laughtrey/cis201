@@ -14,38 +14,10 @@
 
 int main()
 {
-   int id = 11234;
-   course test;
-   test.create_listing();
-   test.print();
-   grade grade;
-   grade.create_csc1();
-   grade.print();
-   std::cin.get();
-   // std::cout << "Please enter your student ID:" ;
-   // std::cin >> id;
-
-
-
-   // std::ofstream report("./data/report.txt", std::ios::out);
-   // if (report.is_open())
-   // {
-   //    report << "This is a line.\n";
-   //    report.close();
-   // }
-   // std::ifstream csc1("./data/CSC1.txt", std::ios::in);
-   // if (csc1.is_open())
-   // {
-   //    std::string line;
-   //    while (std::getline(csc1, line))
-   //    {
-   //       std::cout << line << '\n';
-   //    }
-   //    csc1.close();
-   // }
-   // else
-   // {
-   //    std::cerr << "End Prog\n";
-   // }
+   course subject;
+   int x = 0;
+   std::cout << "Please enter your student ID (Enter 11234 or 11254 or 11324 or 21883): ";
+   std::cin >> x;
+   subject.create_report(x);
    return 0;
 }

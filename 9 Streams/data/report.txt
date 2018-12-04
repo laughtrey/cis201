@@ -1,6 +1,0 @@
-Student ID   16753
-CSC2     B+
-MTH121   C+
-CHN1     A
-PHY50    A-
-//example//

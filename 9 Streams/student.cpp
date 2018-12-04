@@ -5,18 +5,22 @@
 #include "course.h"
 student::student()
 {
-   
+   m_id;
+   // m_enrolled;
 }
-student::student(double id,std::vector<course> &v)
+student::student(int &id)
 {
    m_id = id;
-   m_enrolled = v;
 }
-double student::get_id()
+int student::get_id()
 {
    return m_id;
 }
-std::vector<course> student::get_enrolled()
-{
-   return m_enrolled;
-}
+// void student::set_enrolled(std::vector<course> &v)
+// {
+//    m_enrolled = v;
+// }
+// std::vector<course> student::get_enrolled()
+// {
+//    return m_enrolled;
+// }
