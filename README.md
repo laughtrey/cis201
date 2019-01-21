@@ -41,4 +41,5 @@
 
 ### 9.1 Final
 >Dec-3 This program is a concordance generator. It will make a list of all the words found in a text file and count of the
->number of times the word occurred.
+>number of times the word occurred, and on which lines they occurred on. I used a bit of help from <algorithm> to sort the words
+>in order of times occurred, but the alternative was inefficient.
