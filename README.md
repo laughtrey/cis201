@@ -1,5 +1,7 @@
 # CIS 201
 
+[Continued in CIS 202](https://laughtrey.github.io/cis202/)
+
 ## Projects
 
 ### 1 Sum Product and Average
