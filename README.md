@@ -1,6 +1,8 @@
-# CIS 201 - Introduction to Programming 1 - Big C++ by Cay Horstmann
+# CIS 201 - Introduction to Programming 1
 
 ### Fall '18
+### Textbook: Big C++ by Cay Horstmann
+#### Final grade: A
 
 [Continued in CIS 202](https://laughtrey.github.io/cis202/)
 
