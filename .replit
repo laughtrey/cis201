@@ -1,0 +1,2 @@
+language = "cpp"
+run = "gcc -o main main.cpp && ./main"
